@@ -56,3 +56,11 @@ jobs:
         uses: Azure/static-web-apps-deploy@v1
         with:
           action: "close"
+
+      # Add the reset Git configuration step here
+      - name: Reset Git Configuration
+        run: |
+          git config --global --unset-all http.https://github.com/.extraheader || echo "No extraheaders to remove"
+          git config --global --unset http.https://github.com/.extraheader || echo "No extraheader to unset"
+
+      
